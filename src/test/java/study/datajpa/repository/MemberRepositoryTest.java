@@ -131,4 +131,16 @@ class MemberRepositoryTest {
             System.out.println("member = " + member);
         }
     }
+
+    @Test
+    public void returnType() {
+        Member m1 = new Member("AAA", 10);
+        Member m2 = new Member("BBB", 20);
+        memberRepository.save(m1);
+        memberRepository.save(m2);
+
+        List<Member> aaa = memberRepository.findListByUsername("AAA"); // 결과가 없으면 empty, null은 안나옴
+        Member findMember = memberRepository.findMemberByUsername("AAA"); // 결과가 없으면 null이 나옴
+        Optional<Member> optionalMember = memberRepository.findOptionalByUsername("AAA");
+    }
 }
