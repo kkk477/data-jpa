@@ -8,6 +8,10 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(of = {"id", "username", "age"})
 public class Member {
+    public Member(String username, int age) {
+        this.username = username;
+        this.age = age;
+    }
 
     @Id @GeneratedValue
     @Column(name = "member_id")
